@@ -1,0 +1,12 @@
+.vscode*
+*.o
+*.out
+db
+main
+test
+*.pdf
+*.doc
+*.docx
+empty
+preproclog*
+*.zip
