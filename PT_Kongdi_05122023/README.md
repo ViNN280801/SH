@@ -34,6 +34,10 @@ gcc main.c -Wall -Wpedantic -Wextra -o main
 
 4. The program will display the elements provided by the user and the arranged square matrix based on the specified pattern.
 
+## Example
+
+<img src="imgs/result.jpg">
+
 ## Memory leaks
 
 Using [valgrind](https://valgrind.org) tool for check of any memory leaks or errors in a program:
