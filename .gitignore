@@ -10,3 +10,4 @@ test
 empty
 preproclog*
 *.zip
+__pycache__
