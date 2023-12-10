@@ -1,0 +1,15 @@
+sudo systemctl start mariadb
+sudo systemctl status mariadb
+sudo systemctl enable mariadb
+sudo mysql -u root -p
+Enter password: ...
+
+Создание пользователя, БД и таблиц
+MariaDB [(none)]> source db.sql
+Query OK, 0 rows affected (0.032 sec)
+Query OK, 0 rows affected (0.006 sec)
+Query OK, 1 row affected (0.000 sec)
+Query OK, 0 rows affected (0.022 sec)
+Query OK, 0 rows affected (0.060 sec)
+
+USE array_storage;
