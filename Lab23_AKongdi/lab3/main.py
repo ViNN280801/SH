@@ -74,6 +74,7 @@ class SortingApp(QMainWindow):
         self.show_arrays_button = QPushButton("Показать массивы из базы")
         self.array_list = QListWidget()
         self.sort_array_button = QPushButton("Сортировать массив")
+        self.generate_array_button = QPushButton("Сгенерировать массив")      
 
         # Добавление элементов управления на основной интерфейс
         layout.addWidget(self.label)
@@ -82,11 +83,13 @@ class SortingApp(QMainWindow):
         layout.addWidget(self.show_arrays_button)
         layout.addWidget(self.array_list)
         layout.addWidget(self.sort_array_button)
+        layout.addWidget(self.generate_array_button)
 
         # Подключение функций к кнопкам
         self.save_button.clicked.connect(self.save_array)
         self.show_arrays_button.clicked.connect(self.show_arrays)
         self.sort_array_button.clicked.connect(self.sort_array)
+        self.generate_array_button.clicked.connect(self.generate_array)
 
         self.setWindowTitle("Sorting App")
         self.setGeometry(100, 100, 400, 400)
@@ -111,11 +114,31 @@ class SortingApp(QMainWindow):
             # Преобразование строки в массив
             array = eval(selected_item.text())
             sorted_array = selection_sort(array)
+
+            # Создание сообщения с вопросом о сохранении отсортированного массива
+            reply = QMessageBox.question(
+                self, 'Сохранение в базу данных',
+                'Хотите ли Вы сохранить отсортированный массив в базу данных?',
+                QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+            # Обработка выбора пользователя
+            if reply == QMessageBox.Yes:
+                add_array_to_db(sorted_array)
+
+            # Показ сообщения с отсортированным массивом
             QMessageBox.information(
                 self, 'Отсортированный массив', str(sorted_array))
         else:
             QMessageBox.warning(self, 'Предупреждение',
                                 'Выберите массив для сортировки')
+    
+    def generate_array(self):
+        # Генерация массива с 10 случайными целочисленными значениями от 1 до 100
+        random_array = [random.randint(1, 100) for _ in range(10)]
+
+        # Преобразование сгенерированного массива в строку и отображение его в поле ввода
+        self.array_input.setText(','.join(map(str, random_array)))
+
 
 
 if __name__ == '__main__':
