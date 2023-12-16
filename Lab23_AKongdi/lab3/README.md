@@ -131,3 +131,19 @@ python main.py
 <img src="imgs/sorting.png">
 
 <img src="imgs/sorted_arr.png">
+
+Добавлены новые возможности в приложение:
+
+1. Возможность сохранения отсортированного массива в базу данных.
+   > Обратите внимание, что сохранение происходит в `unsorted_arrays`
+2. Кнопка с генерацией массива.
+
+<img src="imgs/1.png">
+
+<img src="imgs/2.png">
+
+<img src="imgs/3.png">
+
+<img src="imgs/4.png">
+
+<img src="imgs/5.png">
